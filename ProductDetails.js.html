@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: ProductDetails.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: ProductDetails.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { Component } from "react";
+
+/**
+* ProductDetails.js is a component that renders the details of a product, including its name, image, price, description, and options to add to cart or go back to pets.
+* @returns {JSX.Element} - The ProductDetails component.
+* @param {Object} props - Component props
+* @param {object} props.goodPet - The product to display.
+* @param {function} props.handleChosen - Callback function to handle clicking the back button.
+* @param {function} props.addToCart - Callback function to handle adding the product to cart.
+* @example
+* &lt;ProductDetails
+*   goodPet={this.state.goodAnimal}
+*   addToCart={this.props.addToCart}
+*   handleChosen={this.handleToggleChosen.bind(this)}
+* />
+* @extends React.Component
+* @returns {JSX.Element}
+*/
+class ProductDetails extends Component {
+
+  /**
+  * @function
+  * @returns {JSX.Element} JSX element.
+  */
+  render() {
+    let product = this.props.goodPet;
+    if (product.breed !== undefined) {
+      return (
+        &lt;div className="large" style={{ marginTop: '20px', flexDirection: 'row', display: 'flex', alignItems: 'center' }}>
+          &lt;div className="col flexCenter centerText">
+            &lt;img
+              id={product._id}
+              name={product.name}
+              alt={product.breed}
+              src={product.url}
+              className="productDetailsImg"
+            >&lt;/img>
+          &lt;/div>
+          &lt;div className="row" style={{ marginLeft: '20px', marginRight: '100px', }}>
+            &lt;div className="col">
+              &lt;div className="row">
+                &lt;h2>Name: &lt;h3>{product.name}&lt;/h3>&lt;/h2>
+              &lt;/div>
+              &lt;div className="row">
+                &lt;h2>Breed: &lt;h3>{product.breed}&lt;/h3>&lt;/h2>
+              &lt;/div>
+              &lt;div className="row">
+                &lt;h2>Age: &lt;h3>{product.age}&lt;/h3>&lt;/h2>
+              &lt;/div>
+              &lt;div className="row">
+                &lt;h2>Description: &lt;h3>{product.description}&lt;/h3>&lt;/h2>
+              &lt;/div>
+              &lt;div className="row">
+                &lt;h2>Price: &lt;h3>${product.price}&lt;/h3>&lt;/h2>
+              &lt;/div>
+            &lt;/div>
+          &lt;/div>
+          &lt;div className="col">
+            &lt;button
+              style={{ display: "block", width: '120px' }}
+              id="addToCart"
+              className="btn btn-primary"
+              onClick={() => {
+                this.props.addToCart(product);
+                this.props.handleChosen();
+              }}
+            >
+              {" "}
+              Add to Cart
+            &lt;/button>
+            &lt;button
+              style={{ display: "block", width: '120px' }}
+              id="backToPets"
+              className="btn btn-secondary"
+              onClick={() => this.props.handleChosen()}
+            >
+              {" "}
+              Back
+            &lt;/button>
+          &lt;/div>
+        &lt;/div>
+      );
+    } else {
+      return (
+        &lt;div className="large" style={{ marginTop: '20px', flexDirection: 'row', display: 'flex', alignItems: 'center' }}>
+          &lt;div className="col flexCenter centerText">
+            &lt;img
+              id={product._id}
+              name={product.name}
+              src={product.url}
+              className="productDetailsImg"
+            >&lt;/img>
+          &lt;/div>
+          &lt;div className="row" style={{ marginLeft: '20px', marginRight: '100px', }}>
+            &lt;div className="col">
+              &lt;div className="row">
+                &lt;h2>Name: &lt;h3>{product.name}&lt;/h3>&lt;/h2>
+              &lt;/div>
+              &lt;div className="row">
+                &lt;h2>Description: &lt;h3>{product.description}&lt;/h3>&lt;/h2>
+              &lt;/div>
+              &lt;div className="row">
+                &lt;h2>Weight: &lt;h3>{product.weight}&lt;/h3>&lt;/h2>
+              &lt;/div>
+              &lt;div className="row">
+                &lt;h2>Dimensions: &lt;h3>{product.dimension}&lt;/h3>&lt;/h2>
+              &lt;/div>
+              &lt;div className="row">
+                &lt;h2>Price: &lt;h3>${product.price}&lt;/h3>&lt;/h2>
+              &lt;/div>
+            &lt;/div>
+          &lt;/div>
+          &lt;div className="col">
+            &lt;button
+              style={{ display: "block", width: '120px' }}
+              id="addToCart"
+              className="btn btn-primary"
+              onClick={() => {
+                this.props.addToCart(product);
+                this.props.handleChosen();
+              }}
+            >
+              {" "}
+              Add to Cart
+            &lt;/button>
+            &lt;button
+              style={{ display: "block", width: '120px' }}
+              id="backToPets"
+              className="btn btn-secondary"
+              onClick={() => this.props.handleChosen()}
+            >
+              {" "}
+              Back
+            &lt;/button>
+          &lt;/div>
+        &lt;/div>
+      );
+    }
+  }
+}
+export default ProductDetails;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-AdminModel.html">AdminModel</a></li><li><a href="module-Controller.html">Controller</a></li><li><a href="module-PetModel.html">PetModel</a></li><li><a href="module-SuppliesModel.html">SuppliesModel</a></li></ul><h3>Namespaces</h3><ul><li><a href="module-Controller-routes.html">routes</a></li></ul><h3>Classes</h3><ul><li><a href="Admin.html">Admin</a></li><li><a href="App.html">App</a></li><li><a href="Cart.html">Cart</a></li><li><a href="CartItem.html">CartItem</a></li><li><a href="DataManager.html">DataManager</a></li><li><a href="DataTable.html">DataTable</a></li><li><a href="Home.html">Home</a></li><li><a href="NavigationBar.html">NavigationBar</a></li><li><a href="PetModal.html">PetModal</a></li><li><a href="Pets.html">Pets</a></li><li><a href="ProductDetails.html">ProductDetails</a></li><li><a href="Supplies.html">Supplies</a></li><li><a href="SuppliesModal.html">SuppliesModal</a></li><li><a href="module-AdminModel.userSchema.html">userSchema</a></li><li><a href="module-PetModel.petsSchema.html">petsSchema</a></li><li><a href="module-SuppliesModel.suppliesSchema.html">suppliesSchema</a></li><li><a href="module-components.CheckoutModal.html">CheckoutModal</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Tue Apr 04 2023 17:36:22 GMT-0700 (Pacific Daylight Saving Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
